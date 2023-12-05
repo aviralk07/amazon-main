@@ -1,0 +1,90 @@
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+.subtotal_gift {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 20px;
+  right: 12px;
+}
+
+.subtotal_gift > input {
+  margin: 10px;
+}
+
+.subtotal > button {
+  border-radius: 2px;
+  width: 100%;
+
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  transition: transform 1s ease-in-out;
+}
+.subtotal > button:hover {
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%) !important;
+  font-size: larger;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  transform: scale(1.1);
+  border: 3px solid rgb(239, 132, 132);
+}
+
+@media (max-width: 767px) {
+  .subtotal {
+    width: 180px;
+    margin-left: -10px;
+    height: 100px;
+  }
+
+  .subtotal > button {
+    width: 150px;
+    padding: 0%;
+    font-size: 10px;
+    position: relative;
+    bottom: 35px;
+  }
+  .subtotal > button:hover {
+    width: 150px;
+    padding: 0%;
+    font-size: 10px;
+    position: relative;
+   
+    border-radius: 5px;
+  }
+  .subtotal p {
+    font-size: 13px;
+    position: relative;
+    bottom: 16px;
+  }
+  .subtotal_gift {
+    font-size: 10px;
+    width: 500px;
+    margin: 0;
+    position: relative;
+    bottom: 33px;
+  }
+  .input_subtotal {
+    width: 10px;
+    margin: 0;
+  }
+  .car-ani {
+    width: 100px !important;
+  }
+}

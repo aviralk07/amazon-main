@@ -1,0 +1,111 @@
+.checkoutProduct {
+  /* Add common styles for the container of the CheckoutProduct */
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.checkoutProduct_image {
+  /* Add common styles for the product image */
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.checkoutProuduct_info {
+  /* Add common styles for the product info container */
+  margin-left: 10px;
+  padding: 20px;
+}
+
+.checkoutProuduct_title {
+  /* Add common styles for the product title */
+  font-weight: 600;
+  width: 300px;
+  font-size: 17px;
+}
+
+.checkoutProduct_rating:hover {
+  /* Add common styles for the star ratings container */
+  color: blue !important;
+}
+
+.btn-1-sc {
+  position: relative;
+  background-color: rgb(255, 217, 0) !important;
+  color: #e80101 !important;
+  font-weight: 600 !important;
+  margin-top: 20px !important;
+
+  padding: 10px !important;
+  cursor: pointer !important;
+  overflow: hidden; /* Ensure that child elements don't overflow */
+  transition: transform 1s ease-in-out !important; /* Add transition for smooth animation */
+  border: none !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+  border-radius: 50px !important;
+  box-shadow: inset 10px 10px 10px -1px rgba(10, 99, 169, 0.16),
+    inset -10px -10px 10px -1px rgba(255, 255, 255, 0.7) !important;
+}
+
+.btn-1-sc .icon {
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.5s ease-in-out;
+}
+
+.btn-1-sc .text {
+  position: relative;
+  z-index: 1; /* Bring text to the front */
+  transition: z-index 0.5s ease-in-out;
+}
+
+.btn-1-sc:hover {
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%) !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight: bolder !important;
+  transform: scale(1.1) !important;
+  padding: 10px 30px !important;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
+  border: 2px solid rgb(16, 98, 229) !important;
+  border-radius: 10px !important;
+}
+
+.btn-1-sc:hover .icon {
+  left: 92%;
+}
+
+.btn-1-sc:hover .text {
+  z-index: 0;
+  right: 4%;
+}
+/* Styles for mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+  .checkoutProuduct_info {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .checkoutProuduct_title {
+    width: 100%; /* Allow the title to take the full width on smaller screens */
+    font-size: 12px;
+  }
+
+  .btn-1-sc {
+    font-size: 10px !important; /* Adjust font size for smaller screens */
+    width: 140px !important;
+    padding: 3% !important;
+  }
+  .btn-1-sc:hover {
+    font-size: 10px !important; /* Adjust font size for smaller screens */
+    width: 140px !important;
+    padding: 4% !important;
+  }
+}

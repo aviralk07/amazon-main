@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap");
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px 39px 0 39px; /* Adjust the margin for left and right sides */
+  padding: 20px;
+  width: 100%;
+  max-height: 400px;
+  min-width: 100px;
+  z-index: 1;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 0 10px 0 white;
+  position: relative;
+  top: 160px;
+}
+.product:hover {
+  background-color: #000000 !important;
+  box-shadow: 0 0 50px 0 rgb(152, 203, 255);
+  color: white;
+}
+
+.product > img {
+  margin-top: 20px;
+  max-height: 120px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 150px;
+  transition: transform 1s ease-in-out;
+}
+.product > img:hover {
+  transform: scale(1.1);
+}
+.product_price {
+  margin-top: 5px;
+  line-height: 0;
+}
+.product_rating {
+  line-height: 10px;
+  display: flex;
+}
+
+.product_info {
+  height: 100px;
+}
+.product-p {
+  width: 370px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.product > button {
+  border: none;
+  margin-top: -140px;
+  background: linear-gradient(to right, #f0c14b, #f39c12);
+  border-color: #a88734 #9c7e31 #846a29;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  font-size: small;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product > button:hover {
+  background: linear-gradient(to right, #f39c12, #e74c3c);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+}
+
+.product > button:focus {
+  background: linear-gradient(to right, #4caf50, #45a049);
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product_title_container {
+  position: relative;
+}
+
+.expand_icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #ff0000;
+  font-size: 21px; /* Adjust the size as needed */
+}
+.expand_icon:hover {
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 768px) {
+  .product {
+    margin: 10px; /* Adjust the margin for left and right sides */
+    padding: 10px 20px 20px 50px; /* Adjust padding for smaller screens */
+    position: relative;
+    top: 150px;
+  }
+
+  .product > img {
+    margin-bottom: 10px; /* Adjust margin for image */
+    width: 170px;
+    transition: transform 1s ease-in-out;
+  }
+  .product > img:hover {
+    transform: scale(1.1);
+  }
+
+  .product_price {
+    margin-top: 5px;
+    line-height: 0;
+    font-size: 14px; /* Adjust font size for price */
+  }
+
+  .product_rating {
+    line-height: 10px;
+    display: flex;
+    font-size: 12px; /* Adjust font size for rating */
+  }
+
+  .product_info {
+    margin-bottom: 5px;
+    height: auto;
+  }
+
+  .product-p {
+    font-weight: 500;
+    font-size: 14px; /* Adjust font size for title */
+    width: 300px;
+  }
+
+  .product > button {
+    margin-top: 0; /* Remove negative margin for button */
+    font-size: 10px;
+    transition: transform 1s ease-in-out; /* Add transition for smooth animation */
+  }
+  .product > button:hover {
+    font-size: 12px;
+    transform: scale(1.1);
+  }
+  .product > button:focus {
+    font-size: 12px;
+  }
+  .expand_icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ff0000;
+    font-size: 15px; /* Adjust the size as needed */
+  }
+ 
+}
