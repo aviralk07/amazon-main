@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import Checkout from "./Components/Checkout";
 import Header from "./Components/Header";
@@ -9,8 +10,31 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function App() {
+  const [{}, dispatch] = useStateValue();
+  // listner to keep tracking who is sign in
+  useEffect(() => {
+    //  only runs once when app component loads......
+    auth.onAuthStateChanged((authUser) => {
+      console.log("TheUSER IS >>>", authUser);
+      if (authUser) {
+        // the user just loged in / the user was logged in
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        // the user is logged out
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+      }
+    });
+  }, []);
   return (
     <Router>
       <AppContent />
