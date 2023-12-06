@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+
 .checkout {
   padding: 20px;
   height: max-content;
@@ -15,12 +17,40 @@
 
 .checkout_title {
   margin-right: 10px;
-  padding: 10px;
+
   border-bottom: 1px solid lightgrey;
 }
+
+
+/* styles.css */
+
+.neon-text {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: 2.2rem;
+  color: rgb(255, 255, 255);
+  position: relative;
+  letter-spacing: 4px;
+  animation: neon 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(221, 0, 255),
+    0 0 35px rgb(234, 12, 12), 0 0 40px rgb(0, 47, 255), 0 0 50px #0ff,
+    0 0 75px #0ff;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+      0 0 20px rgb(0, 60, 255), 0 0 35px rgb(0, 255, 191), 0 0 40px rgb(0, 0, 0),
+      0 0 50px rgb(132, 247, 18);
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(51, 0, 255),
+      0 0 35px rgb(228, 255, 49), 0 0 40px #0ff, 0 0 50px #0ff,
+      0 0 75px rgb(255, 83, 3);
+  }
+}
+
 @media (max-width: 768px) {
   .checkout {
-   
     overflow-x: hidden;
   }
   .checkout_tit {
@@ -33,7 +63,7 @@
     position: relative;
     left: -13px;
   }
-  .checkout_title{
+  .checkout_title {
     font-size: 15px;
   }
 }
