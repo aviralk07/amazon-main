@@ -93,7 +93,8 @@ const Login = () => {
     validatePassword();
 
     if (!emailError && !passwordError) {
-      console.log("Signing in with email:", email);
+      console.log("Signing in with email:", email, "password:", password);
+
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;

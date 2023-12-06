@@ -1,10 +1,10 @@
 export const initialState = {
   basket: [],
-  user: null, //even listner
+  user: null, // even listener
 };
+
 // Selector
 export const getBasketTotal = (basket) =>
-  // adding to cart and and price total to cart
   basket?.reduce((amount, item) => item.price + amount, 0);
 
 const reducer = (state, action) => {
@@ -16,13 +16,25 @@ const reducer = (state, action) => {
         basket: [...state.basket, action.item],
       };
     case "Remove_From_Basket":
-      const updatedBasket = state.basket.filter(
-        (item) => item.id !== action.id
+      const indexToRemove = state.basket.findIndex(
+        (item) => item.id === action.id
       );
-      return {
-        ...state,
-        basket: updatedBasket,
-      };
+
+      if (indexToRemove !== -1) {
+        // Make a shallow copy of the basket array
+        const newBasket = [...state.basket];
+
+        // Remove the item at the found index
+        newBasket.splice(indexToRemove, 1);
+
+        return {
+          ...state,
+          basket: newBasket,
+        };
+      }
+
+      // If the item is not found, return the current state
+      return state;
     case "SET_USER":
       return {
         ...state,
@@ -32,4 +44,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 export default reducer;
+
