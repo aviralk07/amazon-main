@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   background-color: black;
-  position: sticky;
+
   top: 0;
   z-index: 100;
 }
@@ -71,6 +71,15 @@
 
 .login_link {
   text-decoration: none;
+}
+
+.signedIn {
+  color: rgb(255, 86, 86); /* Change this to the desired color when signed in */
+}
+
+.signedOut {
+  color: rgb(112, 255, 112);
+  /* Change this to the desired color when signed out */
 }
 
 /* Mobile Responsiveness */

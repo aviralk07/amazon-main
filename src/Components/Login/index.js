@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import "./style.css";
-import { Link, useNavigate } from "react-router-dom"; // Import useHistory
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { IoEye, IoEyeOff } from "react-icons/io5"; // Import React Icons
 
 const Login = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+
   const animationVariants = {
     desktop: {
-      x: [-200, 200, -200],
+      x: [-180, 180, -180],
       scale: [1, 1.7, 1],
       filter: [
         "hue-rotate(0deg)",
@@ -38,30 +40,91 @@ const Login = () => {
   const isMobile = window.innerWidth <= 600;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [hasValidationErrors, setHasValidationErrors] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const validateEmail = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      setHasValidationErrors(true);
+    } else if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address");
+      setHasValidationErrors(true);
+    } else {
+      setEmailError("");
+      setHasValidationErrors(false);
+    }
+  };
+
+  const validatePassword = () => {
+    if (!password.trim()) {
+      setPasswordError("Password is required");
+      setHasValidationErrors(true);
+    } else if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters");
+      setHasValidationErrors(true);
+    } else {
+      setPasswordError("");
+      setHasValidationErrors(false);
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setHasValidationErrors(false);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setHasValidationErrors(false);
+  };
 
   const signIn = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((auth) => {
-        navigate("/"); // Use navigate instead of history.push
-      })
-      .catch((error) => alert(error.message));
+    validateEmail();
+    validatePassword();
+
+    if (!emailError && !passwordError) {
+      console.log("Signing in with email:", email);
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("Successfully signed in:", user);
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Sign-in error:", error.code, error.message);
+          alert(error.message);
+        });
+    } else {
+      alert("Please fix the validation errors before signing in.");
+    }
   };
 
   const register = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((auth) => {
-        if (auth) {
-          navigate("/"); // Use navigate instead of history.push
-        }
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => alert(error.message));
   };
 
   return (
-    <div className="login-page-container">
-      <div className="login">
+    <div
+      className={`login-page-container ${
+        hasValidationErrors ? "has-errors" : ""
+      }`}
+    >
+      <div className={`login ${hasValidationErrors ? "has-errors" : ""}`}>
         <Link to="/">
           <motion.img
             className="login_logo"
@@ -76,17 +139,32 @@ const Login = () => {
 
           <form>
             <h5>E-mail</h5>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-            />
-            <h5> Password</h5>
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-            />
+            <input value={email} onChange={handleEmailChange} type="text" />
+            {emailError && <p className="error-message">{emailError}</p>}
+            <h5>Password</h5>
+            <div className="password-input-container">
+              <input
+                value={password}
+                onChange={handlePasswordChange}
+                type={showPassword ? "text" : "password"}
+              />
+              <div className="password-toggle-icon-container">
+                {showPassword ? (
+                  <IoEyeOff
+                    className="password-toggle-icon"
+                    onClick={handleTogglePassword}
+                    style={{ color: "red" }}
+                  />
+                ) : (
+                  <IoEye
+                    className="password-toggle-icon"
+                    onClick={handleTogglePassword}
+                    style={{ color: "blue" }}
+                  />
+                )}
+              </div>
+            </div>
+            {passwordError && <p className="error-message">{passwordError}</p>}
             <br /> <br />
             <button
               type="submit"

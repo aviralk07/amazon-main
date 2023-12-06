@@ -38,18 +38,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center-align text within the container */
+  text-align: center;
   border-radius: 30px;
-  box-shadow: 0 10px 15px 10px rgba(251, 250, 250, 0.455); /* Adjust the shadow as needed */
+  box-shadow: 0 10px 15px 10px rgba(251, 250, 250, 0.455);
 }
 
 .login_container {
-  width: 60%; /* Adjust container width as needed */
+  width: 60%;
 }
 
 form h5 {
   font-size: 2rem;
-
   color: white;
   font-family: "Merienda", cursive;
   animation-name: glow;
@@ -72,13 +71,12 @@ form h5 {
   margin-bottom: 20px;
   object-fit: contain;
   width: 100px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 button {
   margin: 20px;
 }
+
 .custom-btn {
   width: 130px;
   height: 40px;
@@ -92,14 +90,12 @@ button {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
-/* 1 */
-
-/* 12 */
 .btn-12 {
   position: relative;
   right: 70px;
@@ -114,6 +110,7 @@ button {
   font-size: larger;
   text-align: center;
 }
+
 .btn-12 span {
   background: rgb(42, 21, 236);
   background: linear-gradient(
@@ -126,7 +123,6 @@ button {
   position: absolute;
   width: 230px;
   height: 40px;
-
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -138,6 +134,7 @@ button {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
+
 .btn-12 span:nth-child(1) {
   box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
     7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
@@ -148,6 +145,7 @@ button {
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
+
 .btn-12 span:nth-child(2) {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -156,6 +154,7 @@ button {
   -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
+
 .btn-12:hover span:nth-child(1) {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
@@ -163,6 +162,7 @@ button {
   -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
+
 .btn-12:hover span:nth-child(2) {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
@@ -171,6 +171,7 @@ button {
   -moz-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
 }
+
 .sub-main {
   width: 30%;
   margin: 22px;
@@ -181,19 +182,17 @@ button {
   text-align: center;
   cursor: pointer;
   font-size: 24px;
-  margin: 0 0 0 100px;
+  margin: 0 auto;
 }
 
-/*Button Three*/
 .button-three {
   position: relative;
-  right: 170px;
+  right: 105px;
   background-color: #f39c12;
   border: none;
-
   width: 500px;
   text-align: center;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
@@ -211,7 +210,6 @@ button {
   background: #f1c40f;
   display: block;
   position: absolute;
-
   opacity: 0;
   transition: all 0.8s;
 }
@@ -222,18 +220,21 @@ button {
   opacity: 1;
   transition: 0s;
 }
+
 .login-p {
-  width: 500px;
+  width: 450px;
   text-align: center;
   position: relative;
   right: 60px;
+  top: 10px;
   color: white;
-
   transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 15px !important;
 }
+
 .login-p:hover {
-  color: #9886ff; /* Change to the desired hover color */
-  transform: scale(1.1); /* Change to the desired hover scale */
+  color: #9886ff;
+  transform: scale(1.1);
 }
 
 .login-p::before {
@@ -243,7 +244,7 @@ button {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #9886ff; /* Change to the desired underline color */
+  background-color: #9886ff;
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease;
@@ -253,9 +254,9 @@ button {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
 .pancakes-text {
   font-size: 5em;
-
   color: rgb(246, 147, 61);
   text-shadow: 0.02em 0.06em 0.06rem rgb(163, 31, 31), 0 0 0.5em violet;
 }
@@ -282,6 +283,13 @@ input:focus {
   outline: none;
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin: 0;
+  padding: 0%;
+}
+
 /* Animation */
 @keyframes fadeIn {
   from {
@@ -298,6 +306,20 @@ h5,
 input {
   animation: fadeIn 0.5s ease-out;
 }
+
+/* Add these styles to your CSS */
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle-icon-container {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   .login {
     width: 90%;
@@ -323,24 +345,23 @@ input {
 
   .button-three {
     width: 200px;
-    margin: 0;
+    margin: 0 auto;
     font-size: 13px;
     padding: 10px;
-    margin-left: 200px;
     position: relative;
-    bottom: 30px;
-    right: 180px;
+    bottom: 10px;
+    right: 0;
+    margin-left: 15px;
   }
 
   .login-p,
   h5,
-  input {
+  input,
+  .error-message {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    position: relative;
-    right: 0;
-    margin-top: 15px;
+    text-align: center;
   }
 
   h5 {
@@ -350,13 +371,21 @@ input {
   .pancakes-text {
     font-size: 3em;
   }
+
   .login-p {
-    font-size: 13px;
+    font-size: 11px !important;
+    margin-left: 38px;
+    position: relative;
+    top: 10px;
+    width: 320px;
   }
 
   .custom-btn {
     width: 100%;
     margin: 10px 0;
     margin-left: 65px;
+  }
+  .login.has-errors {
+    height: 97vh; /* Adjust the height as needed */
   }
 }
