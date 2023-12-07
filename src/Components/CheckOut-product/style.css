@@ -10,6 +10,10 @@
   width: 180px;
   height: 180px;
   object-fit: contain;
+  transition: transform 1s ease-in-out !important; /* Add transition for smooth animation */
+}
+.checkoutProduct_image:hover {
+  transform: scale(1.1) !important;
 }
 
 .checkoutProuduct_info {
@@ -23,6 +27,9 @@
   font-weight: 600;
   width: 300px;
   font-size: 17px;
+}
+.checkoutProuduct_title:hover {
+  color: blue !important;
 }
 
 .checkoutProduct_rating:hover {

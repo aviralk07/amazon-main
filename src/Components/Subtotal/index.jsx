@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 import { motion } from "framer-motion";
 import { useStateValue } from "../../StateProvider";
 import { getBasketTotal } from "../../Reducer";
-import numeral from "numeral"; // Import numeral
+import numeral from "numeral";
+import { useNavigate } from "react-router-dom"; // Correct import
 
 const Subtotal = () => {
+  const navigate = useNavigate(); // Correct usage
   const [{ basket }, dispatch] = useStateValue();
   const isMobile = window.innerWidth <= 767;
 
@@ -21,7 +23,9 @@ const Subtotal = () => {
           <input className="input_subtotal" type="checkbox" />
           <div className="input-p"> This order contains a gift</div>
         </small>
-        <Button variant="warning">Proceed to checkout</Button>{" "}
+        <Button onClick={(e) => navigate("/payment")} variant="warning">
+          Proceed to checkout
+        </Button>{" "}
       </div>
 
       {!isMobile && (

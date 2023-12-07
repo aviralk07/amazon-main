@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import Product from "../Product/Index";
 import abcdAudio from "./aa.mp3"; // Adjust the path accordingly
-
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Home = () => {
   const [audioPlayed, setAudioPlayed] = useState(false);
 
@@ -34,13 +35,106 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home_container">
-        <img
-          src="https://assets.beartai.com/uploads/2022/08/prime-video-th.jpg"
-          alt=""
-          className="home_image"
-        />
+        {/* Carousel for product images */}
+
+        <Carousel
+          className="carousel-container"
+          autoPlay={true}
+          interval={2000}
+          infiniteLoop={true}
+          showThumbs={false}
+          showArrows={false}
+          showIndicators={false}
+        >
+          <div className="carousel-slide">
+            <img
+              src="https://assets.beartai.com/uploads/2022/08/prime-video-th.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://www.techhive.com/wp-content/uploads/2023/05/firetvhome.jpg?quality=50&strip=all"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://www.looper.com/img/gallery/new-amazon-fire-tv-interface-drops-who-gets-it-and-why-you-want-it/amazon-new-fire-tv-interface-2.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://techcrunch.com/wp-content/uploads/2022/07/Top-10.png"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://m.media-amazon.com/images/G/01/juno/AHS_NonEnt_1a._TTW_.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://m.media-amazon.com/images/G/01/Audio/AHS/AHS_Absentia_Copyright2._TTW_.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://i.pinimg.com/736x/8f/38/65/8f3865b1a7867d249e7af8b920ab9de3.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://s3images.coroflot.com/user_files/individual_files/487581_usSGWSIfOKKAEyjQDdwxqOwGt.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://i.ytimg.com/vi/zj8Bcn_aCzc/maxresdefault.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://i.ytimg.com/vi/6w9wYoRTqRY/maxresdefault.jpg"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://akm-img-a-in.tosshub.com/sites/itgaming/resources/202310/fc24161023072017.png"
+              alt=""
+              className="home_image"
+            />
+          </div>
+          <div className="carousel-slide">
+            <img
+              src="https://assets.vg247.com/current//2016/04/uncharted-4-marketing-campaign.png"
+              alt=""
+              className="home_image"
+            />
+          </div>
+        </Carousel>
+
         <div className="home_row">
           {/* product  */}
+
           <Product
             id={"12312312"}
             title="Sony PS5® Console – Marvel’s Spider-Man 2 Limited Edition Bundle"
@@ -50,6 +144,7 @@ const Home = () => {
             }
             rating={4.5}
           />
+
           <Product
             id={"67548390"}
             title="Apple 2023 MacBook Pro Laptop M2 Max chip."

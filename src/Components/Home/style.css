@@ -15,7 +15,7 @@
   height: auto;
   z-index: -1;
   margin-bottom: -150px;
-  mask-image: linear-gradient(to bottom, rgb);
+  
 }
 
 .home_row {
@@ -24,6 +24,67 @@
   margin-left: -5px;
   margin-right: -5px;
 }
+
+/* Add these styles to your existing CSS */
+
+/* Styles for the carousel container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1500px; /* Set a max-width to limit the carousel size */
+  height: 530px;
+  margin:  auto;
+  
+}
+
+/* Style for individual carousel slides/images */
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 680px; /* Set a fixed height for the carousel images */
+}
+
+/* Style for the carousel navigation arrows */
+.carousel .control-prev,
+.carousel .control-next {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.carousel .control-prev:hover,
+.carousel .control-next:hover {
+  color: #e44d26; /* Change color on hover */
+}
+
+/* Style for the carousel indicators (dots) */
+.carousel .carousel-slider .control-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .carousel-slider .control-dots .dot {
+  background-color: #ffdddd;
+  width: 100px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel .carousel-slider .control-dots .dot.selected {
+  background-color: #e44d26; /* Change color for the active dot */
+}
+
 
 @media only screen and (max-width: 768px) {
   .home {
