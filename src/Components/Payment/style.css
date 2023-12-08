@@ -1,3 +1,4 @@
+/* Default styles for larger screens */
 .payment {
   background-color: white;
 }
@@ -9,20 +10,40 @@
   background-color: rgb(234, 237, 237);
   border-bottom: 1px solid lightgray;
 }
+
 .payment_container > h1 a {
   text-decoration: none;
 }
+
 .payment_section {
   display: flex;
   padding: 20px;
   margin: 0 20px;
   border-bottom: 1px solid lightgray;
 }
+
 .payment_title {
   flex: 0.2;
 }
+
 .payment_address,
 .payment_items,
 .payment_details {
   flex: 0.8;
+}
+
+/* Responsive styles for smaller screens (up to 600px) */
+@media screen and (max-width: 600px) {
+  .payment_section {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .payment_title,
+  .payment_address,
+  .payment_items,
+  .payment_details {
+    flex: 1;
+    margin: 0;
+  }
 }

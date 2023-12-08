@@ -15,7 +15,6 @@
   height: auto;
   z-index: -1;
   margin-bottom: -150px;
-  
 }
 
 .home_row {
@@ -33,8 +32,7 @@
   width: 100%;
   max-width: 1500px; /* Set a max-width to limit the carousel size */
   height: 530px;
-  margin:  auto;
-  
+  margin: auto;
 }
 
 /* Style for individual carousel slides/images */
@@ -85,7 +83,6 @@
   background-color: #e44d26; /* Change color for the active dot */
 }
 
-
 @media only screen and (max-width: 768px) {
   .home {
     padding: 0 10px; /* Adjust padding for smaller screens */
@@ -98,5 +95,20 @@
     justify-content: center; /* Center products on smaller screens */
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1500px; /* Set a max-width to limit the carousel size */
+    height: 80px;
+    margin: auto;
+  }
+  .carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Set a fixed height for the carousel images */
+    position: relative;
+    bottom: 120px;
   }
 }

@@ -1,59 +1,55 @@
+// Payment.js
 import { React, useEffect, useState } from "react";
 import "./style.css";
 import { useStateValue } from "../../StateProvider";
 import CheckoutProduct from "../CheckOut-product";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../../Reducer";
-import { Axios as axios } from "axios";
+// import axios from "../axios";
 import CurrencyFormat from "react-currency-format";
 
 const Payment = () => {
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate();
   const [{ basket, user }, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [succeeded, setSucceeded] = useState(false);
-  const [processing, setProcessing] = useState();
-  const [clientSceret, setClientSecret] = useState(true);
+  const [processing, setProcessing] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
 
-  useEffect(() => {
-    const getClientSecret = async () => {
-      const response = await axios({
-        method: "post",
-        url: `/payment/create?total=${getBasketTotal(basket) * 100}`,
-      });
-      setClientSecret(response.data.clientSceret);
-    };
+  // useEffect(() => {
+  //   const getClientSecret = async () => {
+  //     const response = await axios({
+  //       method: "post",
+  //       url: `/payment/create?total=${getBasketTotal(basket) * 100}`,
+  //     });
+  //     setClientSecret(response.data.clientSecret);
+  //   };
 
-    getClientSecret();
-  }, [basket]);
+  //   getClientSecret();
+  // }, [basket]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      setProcessing(true);
-      const { paymentIntent } = await stripe.confirmCardPayment(clientSceret, {
-        payment_method: {
-          card: elements.getElement(CardElement),
-        },
-      });
-
-      setSucceeded(true);
-      setError(null);
-      // Display a success message or handle success as needed
-      navigate("/orders"); // Use navigate instead of history.replace
-    } catch (error) {
-      setSucceeded(false);
-      setError(`Payment failed: ${error.message}`);
-      console.error("Error during payment:", error);
-    } finally {
-      setProcessing(false);
-    }
   };
+
+  //   setProcessing(true);
+  //   const payload = await stripe
+  //     .confirmCardPayment(clientSecret, {
+  //       payment_method: {
+  //         card: elements.getElement(CardElement),
+  //       },
+  //     })
+  //     .then(({ paymentIntent }) => {
+  //       setSucceeded(true);
+  //       setError(null);
+  //       setProcessing(false);
+  //       navigate("/orders");
+  //     });
+  // };
 
   const handleChange = (event) => {
     setDisabled(event.empty);
@@ -111,7 +107,7 @@ const Payment = () => {
                     </>
                   )}
                   decimalScale={2}
-                  value={getBasketTotal(basket)} // part of the homework
+                  value={getBasketTotal(basket)}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"₹"}
